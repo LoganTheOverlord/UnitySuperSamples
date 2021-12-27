@@ -18,17 +18,9 @@ public class OrbitCamera : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            if (Input.GetAxis("Mouse X") != 0)
-            {
-                rot += Input.GetAxis("Mouse X") * 5f;
-                rot = Mathf.Clamp(rot, -360, 360);
-            }
-
-            if (Input.GetAxis("Mouse Y") != 0)
-            {
-                yrot -= Input.GetAxis("Mouse Y") * 5f;
-                yrot = Mathf.Clamp(yrot, 10, 90);
-            }
+            rot += Input.GetAxis("Mouse X") != 0 ? Input.GetAxis("Mouse X") * 5f : 0; 
+            yrot -= Input.GetAxis("Mouse Y") != 0 ? Input.GetAxis("Mouse Y") * 5f : 0;
+            yrot = Mathf.Clamp(yrot, 10, 90);
         }
 
         rot = rot >= 360 ? 0 : rot;
