@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfController : MonoBehaviour
+public class OrbitCamera : MonoBehaviour
 {
     Camera main;
     public float rot;
