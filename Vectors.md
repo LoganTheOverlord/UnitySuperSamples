@@ -15,7 +15,7 @@ those are:
 - Vector3.down
 
 You can use this as this:
-rigidbody.AddForce(Vector3.left * 5f + Vector3.up * 10f);
+- rigidbody.AddForce(Vector3.left * 5f + Vector3.up * 10f);
 
 This would launch object into air towards left. It's that simple.
 You can of course combine and multiply these vectors.
