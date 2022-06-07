@@ -24,10 +24,10 @@ Also, transform has similar functions.
 
 You can use:
 
-> transform.right
-> transform.forward
-> transform.up
+- transform.right
+- transform.forward
+- transform.up
 And it's negatives to get opposite direction. This is extremely useful to push objects, or change position in transform's relative direction vectors.
 Example:
-> transform.position += transform.forward * speed;
+- transform.position += transform.forward * speed;
 This would "push" object forward exactly 5 meters (units)
