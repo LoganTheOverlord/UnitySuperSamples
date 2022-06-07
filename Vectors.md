@@ -1,11 +1,11 @@
 There are some simple things I wish people knew. Let's share them!
 
-First of all, you don't have to establish a new Vector3(1,1,1) to make things exactly one on scale, for example.
+>First of all, you don't have to establish a new Vector3(1,1,1) to make things exactly one on scale, for example.
 You can use Vector3.one and it returns the same result.
 Same thing goes for Vector3.zero
 
 Additionally, you don't have to create direction vectors, that are diagonal.
-those are:
+those are:<
 
 - Vector3.left
 - Vector3.right
