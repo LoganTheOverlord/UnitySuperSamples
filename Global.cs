@@ -30,24 +30,20 @@ public class Global
 
     public static event System.Action<ControllerBase> playerHasSpawned; //param1: "Player instance which was spawned"
 
-    public static event System.Action<float, float> onTargeterUpdate; //param1 & 2: X & Y values of targeter
+    public static event System.Action<Transform> onTargeterUpdate; //param1 & 2: X & Y values of targeter
+
+    public static Dictionary<string, FieldInfo> fields = new Dictionary<string, FieldInfo>();
 
 
     //THIS IS MASTERPIECE! Took me hours to figure out, but... Here we raise STATIC events by name!
     public static void RaiseEvent(string methodName, object[] args)
     {
-        foreach (var einfo in typeof(Global).GetEvents())
-        {
-            if (einfo.Name.Equals(methodName))
-            {
-                var eventDelegate = (System.MulticastDelegate)typeof(Global).GetField(methodName, BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+        if (!fields.ContainsKey(methodName)) fields.Add(methodName, typeof(Global).GetField(methodName, BindingFlags.NonPublic | BindingFlags.Static));
 
-                eventDelegate.DynamicInvoke(args);
-            }
-        }
+        var eventDelegate = (System.MulticastDelegate)fields[methodName].GetValue(null);
+
+        eventDelegate.DynamicInvoke(args);
     }
-
-
 
     #endregion
 }
