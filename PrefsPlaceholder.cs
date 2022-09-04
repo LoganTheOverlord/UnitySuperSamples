@@ -20,7 +20,7 @@ public class PrefsPlaceholder : MonoBehaviour
     void Update()
     {
         string _f = format;
-        bool isString = PlayerPrefs.GetInt(key,-1) <= -1;
+        bool isString = PlayerPrefs.GetInt(key,-int.maxValue) <= int.maxValue;
         if (!_w && _p)
         {
             if (isString) _p.text = _f.Replace("%var%", PlayerPrefs.GetString(key));
